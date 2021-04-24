@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <Title>Woodmart</Title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organic Food is a colorful design perfectly suitable for organic food shop, organic farm
+  and organic blog, agricultural business, agrotourism, healthy food blog, bakery – everything you want for an organic website!">
+    <meta name="keywords" content="fruits, vegetables,juice,apple, mango, apricot, e-commerce,buy online">
+    <meta name="author" content="POD2">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style1.css">
+    <link rel="stylesheet" href="./media.css">
+</head>
+
+<body onload="generatecaptcha()">
+
+    <div id="wrapper">
+        <!-- Navbar, Header and Header-image -->
+        <header id="nav" class="nav">
+            <h1> <i class="fa fa-leaf" aria-hidden="true"> WOODMART</i></h1>
+            <a class="active" accesskey="h" href="#home">HOME</a>
+            <a accesskey="s" onmouseover="menu_dropdown('shopdrop','grid')" onmouseleave="menu_dropdown('shopdrop','none')" href="#news">SHOP <i  class="fa fa-angle-down"></i></a>
+            <a accesskey="b" onmouseover="menu_dropdown('blogdrop','grid')" onmouseleave="menu_dropdown('blogdrop','none')" href="#contact">BLOG <i  class="fa fa-angle-down"></i></a>
+            <a accesskey="p" onmouseover="menu_dropdown('pagedrop','grid')" onmouseleave="menu_dropdown('pagedrop','none')" href="#about">PAGES <i  class="fa fa-angle-down"></i></a>
+            <a accesskey="o" onmouseover="menu_dropdown('orderdrop','grid')" onmouseleave="menu_dropdown('orderdrop','none')" href="#about">ORDERS <i  class="fa fa-angle-down"></i></a>
+            <a href="#about">BUY</a>
+            <i class="fa fa-usd right" aria-hidden="true">0.00</i>
+            <i class="fa fa-shopping-cart right" aria-hidden="true"></i>
+            <i class="fa fa-heart-o right" aria-hidden="true"></i>
+            <i onmouseover="menu_dropdown('search-div','block')" onmouseleave="menu_dropdown('search-div','none')" class="fa fa-search right" aria-hidden="true"></i>
+            <a onclick="displayloginpage()" class="right">Register/Login</a>
+        </header>
+        <div onmouseover="menu_dropdown('search-div','block')" onmouseleave="menu_dropdown('search-div','none')" id="search-div">
+            <div class="nav_dropown_subblock">
+                <input class="input" type="search" name="search" placeholder="Search" required/>
+                <i id="searchicon" class="fa fa-search" aria-hidden="true">
+                </i>
+            </div>
+        </div>
+        <!-- Right Login Div -->
+        <div id="login-box" class="login-box">
+            <div id="login">
+                <p>Login up</p>
+                <p onclick="undisplayloginpage()" accesskey="a" class="right closebutton">Close</p>
+                <!--button tag-->
+                <form accept="#" method="POST">
+                    <label for="username" class="display-none">Username</label>
+                    <input class="input" type="text" name="username" placeholder="Username " required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" />
+                    <label for="password" class="display-none">Password</label>
+                    <input class="input" type="password" name="password" placeholder="Password " required pattern="(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$">
+                    <label for="submit" class="display-none">Submit</label>
+                    <input type="submit" name="signup_submit" value="Sign me up" />
+                    <div class="or">OR</div>
+                    <button class="socialmedia facebook " onclick="window.location.href = 'https://facebook.com';">Log in with facebook</button>
+                    <button class="socialmedia twitter " onclick="window.location.href = 'https://twitter.com';">Log in with Twitter</button>
+                    <button class="socialmedia google " onclick="window.location.href = 'https://google.com';">Log in with Google+</button>
+                    <hr>
+                    <button onclick="displayregister()" class="socialmedia twitter">CREATE AN ACCOUNT</button>
+                </form>
+            </div>
+            <div id="register">
+                <p>Register</p>
+                <a onclick="undisplayloginpage()" accesskey="a" class="right ">Close</a>
+                <form action="#" name="RegForm" method="post" onsubmit="getInputValue()">
+                    <label for="name" class="display-none">Name</label>
+                    <input class="input" type="text" name="name " placeholder="Name " required/>
+                    <label for="email" class="display-none">Email</label>
+                    <input class="input" type="email" name="email " placeholder="Email Address " required />
+                    <label for="register username" class="display-none">Username</label>
+                    <input class="input" type="text" name="register username" placeholder="Username " required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" />
+                    <label for="register password" class="display-none">Password</label>
+                    <input class="input" type="password" name="register password " id="psd" placeholder="Password " required pattern="(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$">
+                    <label for="confirmpassword" class="display-none">Confirm Password</label>
+                    <input class="input" type="password" name="confirmpassword" id="cpsd" placeholder="Confirm Password " required pattern="(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$">
+                    <div id="captchastatus" onchange="buttonenable()"></div>
+                    <i onclick="generatecaptcha()" class="fa fa-refresh" aria-hidden="true"></i><input disabled id="captcha">
+                    <label for="signup_submit" class="display-none">Submit</label>
+                    <input id="captchainput" onblur="validatecaptcha()"><input type="submit" name="signup_submit" id="register_submit" disabled value="Register" />
+                    <hr>
+                    <button onclick="undisplayregister()" class="socialmedia twitter">Login</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="nav_dropown shoprop" onmouseover="menu_dropdown('shopdrop','grid')" onmouseleave="menu_dropdown('shopdrop','none')" id="shopdrop">
+            <div class="nav_dropown_subblock">
+                <b>Shop Pages</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Filter-area">Filter Area</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Hidden side Bar">Hidden side bars</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="No page Heading">No Page Heading</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Small Categoy Menu">Small Category Menu</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Mansonary Grid">Mansonary Grid</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Product List View">Product List View</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="With Background">With background</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Categories Description">Category description</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Only Categories">Only categories</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Head Overlap">Head Overlap</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Default Shop">Default Shop</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Product Hovers</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Summary on hover">Summary on hover</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Icons on Hover">Icons on hover</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Full Info on Image">Full info on image</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="All info on hover">All info on hover</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Add info on image">Add info on image</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Button on image">Button on image</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Standard Button">Standard Button</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Quick Shop">Quick shop</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Tiled Hover">Tiled hover</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Categories hover 1">Categories hover #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor" aria-label="Categories hover 2">Categories hover #2</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Product Pages</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Default</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Centered</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Sticky Description</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With shadow</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With Background</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Accordian tab</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Accordian in contact</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Sticky add to cart</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With sidebar</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Extra content #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Extra content #2</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Product Images</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Thumbnail left</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Thumbnail bottom</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Sticky images</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">One coloumn</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Two coloumns</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Combined grid</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Images full width</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Zoom image</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Image size-small</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Image size-large</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Without thumbnails</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Woodcommerce</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Simple Product</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">variable Product</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">External Product</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Grouped Product</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Shopping Cart</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Checkout</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">My account</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Wishlist</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Track oder</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Custom 404 Page #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Custom 404 Page #2</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Features</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">360° product viewer</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With video</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With stock progress bar</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With countdown timer</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Product presentation</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Variations swatches</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Infinit scrolling</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Load more button</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Catalog mode</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Cookies law info</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Parallax scrolling</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav_dropown blogdrop" onmouseover="menu_dropdown('blogdrop','grid')" onmouseleave="menu_dropdown('blogdrop','none')" id="blogdrop">
+            <div class="nav_dropown_subblock">
+                <b>Blog types</b>
+                <ul>
+
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Alternative</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Small images</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Blog chess</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Mansonary Grid</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Infinit scrolling</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With background</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Blog flat</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Default flat</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Blog mask</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Single Posts</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #2</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #3</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #4</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #5</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #6</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #7</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #8</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Post example #9</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav_dropown pagedrop" onmouseover="menu_dropdown('pagedrop','grid')" onmouseleave="menu_dropdown('pagedrop','none')" id="pagedrop">
+            <div class="nav_dropown_subblock">
+                <b>Demo Layouts</b>
+                <ul>
+
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Categories</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Basic</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Parallax</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Infinite Scrolling</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Boxed</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Grid</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Video</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Fullscreen</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Lookbook</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Landing</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Pre-built Objects</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Contact Us #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Contact Us #2</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Contact Us #3</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Contact Us #4</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">FAQs #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">FAQs #2</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Our team</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">About Us #1</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">About Us #2</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">About Me</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Portfolio</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Standard</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Alternative</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Text under image</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Hover parallax</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With Background</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Portfolio fullwidth</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Infinit scrolling</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Single - sticky</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Single - alternative</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Single - gallery</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Single - video</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Headers</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Advanced</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">E-Commerce</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Header base</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Simplified</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Double menu</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Logo center</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With categories menu</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Menu in top bar</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Dark header</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Colored heade</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav_dropown orderdrop" onmouseover="menu_dropdown('orderdrop','grid')" onmouseleave="menu_dropdown('orderdrop','none')" id="orderdrop">
+            <div class="nav_dropown_subblock">
+                <b>Theme Elements</b>
+                <ul>
+
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Titles</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Carousels</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Sliders</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Banners</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Lazy loading</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Instagram</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With background</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Social buttons</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Team member</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Testimonials</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Timeline</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Theme Elements</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Countdown timer</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">360 degree</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Menu price</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Infobox</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Pricing tables</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Portfolio element</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Images gallery</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Blog element</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Video</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Image Hotspot</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Theme Elements</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Products Widgets</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Animated counter</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">AJAX products tabs</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Button with popup</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Section dividers</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Gradients</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Buttons</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">List element</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">With sidebar</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Parallax Scrolling</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Animations</a></li>
+                </ul>
+            </div>
+            <div class="nav_dropown_subblock">
+                <b>Woodcommerce</b>
+                <ul>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Recent Products</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Featured Products</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Single Product</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Products Category</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Products Categories</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Sale Products</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Top Rated Products</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Product Filters</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Products Grid</a></li>
+                    <li><a href="http://localhost:8080/first/grid.html" class="head-anchor">Brands element</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div id="lower-navbar">
+            <div>
+                <img src="https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Mart-256.png" alt="Shop">
+                <button>SHOP</button>
+            </div>
+            <div>
+                <img src="https://cdn4.iconfinder.com/data/icons/e-commerce-ui-outline/64/ecommerce_-_love_favorite-256.png" alt="WISHLIST">
+                <button>WISHLIST</button>
+            </div>
+            <div>
+                <img onclick="displayloginpage()" src="https://cdn3.iconfinder.com/data/icons/user-interface-730/32/User-256.png" alt="My Account">
+                <button onclick="displayloginpage()">MY ACCOUNT</button>
+            </div>
+            <div>
+                <img src="https://cdn1.iconfinder.com/data/icons/scales-an-icon/164/16-256.png" alt="COMPARE">
+                <button>COMPARE</button>
+            </div>
+        </div>
+        <div class="header-image">
+            <img class="left-image" src="image/organic-orange-left (1).png" alt="left-image">
+            <img class="right-image" src="image/image1.png" alt="right-image">
+            <div class="centerborderdiv"></div>
+            <div id="text">
+                <p>LIFE IS LIKE A FRUIT</p>
+                <p>SOMETIMES SOUR</p>
+                <p>
+                    SOMEIMES SWEET
+                </p>
+                <p class="smallerp">IT IS A LONG ESTABLISHED FACT THAT A READER WILL</p>
+                <div class="but">
+                    <p id="showmorebtn" class="headerbutton">SHOP NOW</p>
+                    <p id="viewmorebtn" class="headerbutton">VIEW MORE</p>
+                </div>
+            </div>
+
+        </div>
+
+        <aside id="social-icons">
+            <div class="facebook">
+                <div>FACEBOOK</div>
+                <a href="http://www.facebook.com" aria-label="Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+            </div>
+            <div class="twitter">
+                <div>TWITTER</div>
+                <a href="http://www.twitter.com" aria-label="Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+            </div>
+            <div class="google">
+                <div>GOOGLE</div>
+                <a href="http://www.google.com" aria-label="Google"><i class="fa fa-google fa-2x"></i></a>
+            </div>
+            <div class="linkedin">
+                <div>LINKEDIN</div>
+                <a href="http://www.linkedin.in" aria-label="LinkenIn"><i class="fa fa-linkedin fa-2x"></i></a>
+            </div>
+        </aside>
+
+        <!-- Login and Registration div -->
+
+
+        <!-- Grid with 3 column -->
+        <section class="grid-container grid-container-3-upper-blocks">
+            <div class="grid-element-3-blocks" style="background-image: url(image/image1.png)">
+            </div>
+            <div class="grid-element-3-blocks " style="background-image: url(image/organic-right-img.png)">
+            </div>
+            <div class="grid-element-3-blocks " style="background-image: url(image/organic-right-img-1.png)">
+            </div>
+        </section>
+
+        <!-- Featured Product -->
+        <div class="content">
+            <p class="main-content">Featured Products</p>
+            <img src="image/design.svg">
+            <p class="small-content">There are many variations of passages of lorem ipsum available</p>
+        </div>
+        <section class="grid-container grid-container-featured-products">
+            <div class="grid-element-featured-proucts">
+                <img src="image/organic-product-10-opt-430x430.jpg" alt="Rutrum eget congue">
+                <h3 class="type">Rutrum eget congue
+                </h3>
+                <p class="type">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <p class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </p>
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-16-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-11-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-10-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-8-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-7-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-10-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+            <div class="grid-element-featured-proucts">
+                <div class="image ">
+                    <img src="image/organic-product-10-opt-430x430.jpg" alt="Rutrum eget congue">
+                </div>
+                <h3 class="type ">Rutrum eget congue
+                </h3>
+                <p class="type ">Organic
+                </p>
+                <div class="price ">
+                    <span><span>$</span>239.00</span> – <span><span>$</span>269.00</span>
+                </div>
+                <div class="overlay">
+                    <div class="details">
+                        Erat orci consectetur consectetur consectetur eleifend habitasse est non aenean accumsan risus adipiscing laoreet risus. Libero sed consectetur sit taciti montes suspendisse adipiscing a ligula adipiscing arcu rutrum in praesent nec suspendisse a nec
+                    </div>
+
+                    <button class="quickview-button">Quick view</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blend fruits image and content -->
+        <div class="blend-image">
+            <img src="image/left-img-apricot.png" alt="Apricot">
+        </div>
+        <section class="blend-fruits-content">
+            <h2>Blend fruits premium drink</h2>
+            <p>Many desktop publishing packages and webpage editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover.</p>
+            <div class="grid-container-blend-fruits">
+                <div class="grid-element-blend-fruits">
+                    <h3>FRUITS:</h3>
+                    <p>Feijoa, Piña, Manzana</p>
+                </div>
+                <div class="grid-element-blend-fruits">
+                    <h3>PACKAGING:</h3>
+                    <p>Glass Bottle</p>
+                </div>
+                <div class="grid-element-blend-fruits">
+                    <h3>SHELF LIFE:</h3>
+                    <p>One Month</p>
+                </div>
+                <div class="grid-element-blend-fruits">
+                    <h3>BOTTLE SIZE:</h3>
+                    <p>300ml</p>
+                </div>
+            </div>
+            <div class="blend-button">
+                <p class="blend-imagebutton">View More</p>
+                <p class="blend-imagebutton">Go to Shop</p>
+            </div>
+        </section>
+
+
+        <!-- Our Products div -->
+
+
+        <div class="content ">
+            <p class="main-content">Our Products</p>
+            <img src="image/design.svg">
+            <p class="small-content">There are many variations of passages of lorem ipsum available</p>
+            <ul class="product-tags">
+                <li class="product-tags-inner" id="our-product-icecream">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <p class="product-tags-inner-head">ICE CREAM</p>
+                </li>
+                <li id="our-product-fruitcream" class="product-tags-inner">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <p class="product-tags-inner-head">FRUIT TEA</p>
+                </li>
+                <li id="our-product-fruitjam" class="product-tags-inner">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <p class="product-tags-inner-head">FRUIT JAM</p>
+                </li>
+                <li id="our-product-juice" class="product-tags-inner">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <p class="product-tags-inner-head">JUICE</p>
+                </li>
+                <li id="our-product-powder" class="product-tags-inner">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    <p class="product-tags-inner-head">POWDER</p>
+                </li>
+            </ul>
+        </div>
+        <section class="slider grid-container grid-container-our-products ">
+            <div id="grid-1" class="grid-element-our-products">
+                <img class="our-product-image" src=" image/organic-product-16-opt-430x430.jpg " alt="Our Products ">
+                <div class="price-display ">
+                    <h3 class="our-product-name">Rutrun enet congue</h3>
+                    <p class="our-product-type">Organic</p>
+                    <h4 class="f-product-price our-product-price">$269.0</h4>
+                </div>
+                <div class="overlay ">
+                    <div class="our-product-overlay-text ">
+                        <p>Add to Cart</p>
+                    </div>
+                </div>
+                <div class="overlay1 ">
+                    <div class="our-product-overlay-text ">
+                        <div class="tooltip ">
+                            <i class="fa fa-random " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Compare</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-search " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Search</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-heart-o " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="grid-2" class="grid-element-our-products ">
+                <img class="our-product-image" src="image/organic-product-9-opt-430x430.jpg " alt="Our Products ">
+                <div class="price-display ">
+                    <h3 class="our-product-name">Rutrun enet congue</h3>
+                    <p class="our-product-type">Organic</p>
+                    <h4 class="f-product-price our-product-price">$269.0</h4>
+                </div>
+                <div class="overlay ">
+                    <div class="our-product-overlay-text ">
+                        <p>Add to Cart</p>
+                    </div>
+                </div>
+                <div class="overlay1 ">
+                    <div class="our-product-overlay-text ">
+                        <div class="tooltip ">
+                            <i class="fa fa-random " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Compare</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-search " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Search</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-heart-o " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="grid-3" class="grid-element-our-products ">
+                <img class="our-product-image" src="image/organic-product-10-opt-430x430.jpg " alt="Our Products ">
+                <div class="price-display ">
+                    <h3 class="our-product-name">Rutrun enet congue</h3>
+                    <p class="our-product-type">Organic</p>
+                    <h4 class="f-product-price our-product-price">$269.0</h4>
+                </div>
+                <div class="overlay ">
+                    <div class="our-product-overlay-text ">
+                        <p>Add to Cart</p>
+                    </div>
+                </div>
+                <div class="overlay1 ">
+                    <div class="our-product-overlay-text ">
+                        <div class="tooltip ">
+                            <i class="fa fa-random " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Compare</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-search " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Search</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-heart-o " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="grid-4" class="grid-element-our-products ">
+                <img class="our-product-image" src="image/organic-product-11-opt-430x430.jpg " alt="Our Products ">
+                <div class="price-display ">
+                    <h3 class="our-product-name">Rutrun enet congue</h3>
+                    <p class="our-product-type">Organic</p>
+                    <h4 class="f-product-price our-product-price">$269.0</h4>
+                </div>
+                <div class="overlay ">
+                    <div class="our-product-overlay-text ">
+                        <p>Add to Cart</p>
+                    </div>
+                </div>
+                <div class="overlay1 ">
+                    <div class="our-product-overlay-text ">
+                        <div class="tooltip ">
+                            <i class="fa fa-random " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Compare</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-search " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Search</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-heart-o " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="grid-5" class="grid-element-our-products ">
+                <img class="our-product-image" src="image/organic-product-16-opt-430x430.jpg " alt="Our Products ">
+                <div class="price-display ">
+                    <h3 class="our-product-name">Rutrun enet congue</h3>
+                    <p class="our-product-type">Organic</p>
+                    <h4 class="f-product-price our-product-price">$269.0</h4>
+                </div>
+                <div class="overlay ">
+                    <div class="our-product-overlay-text ">
+                        <p>Add to Cart</p>
+                    </div>
+                </div>
+                <div class="overlay1 ">
+                    <div class="our-product-overlay-text ">
+                        <div class="tooltip ">
+                            <i class="fa fa-random " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Compare</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-search " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Search</span>
+                        </div>
+                        <div class="tooltip ">
+                            <i class="fa fa-heart-o " aria-hidden="true "></i>
+                            <span class="tooltiptext ">Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Blogs Div -->
+        <div class="content ">
+            <p class="main-content ">Our Blog</p>
+            <img src="image/design.svg">
+            <p class="small-content ">There are many variations of passages of lorem ipsum available</p>
+        </div>
+        <section class="grid-container grid-contanier-our-blogs">
+            <div class="grid-contanier-our-blogs-subdiv">
+                <div class="img-hover-zoom ">
+                    <img src="image/organic-blog-img-1-opt.jpg " alt="This zooms-in really well and smooth ">
+                </div>
+                <p class="para1 ">Nature Inspired Outdoor Seating</p>
+                <p class="para2 ">Posted by S.Roges <i class="fa fa-envelope-o " aria-hidden="true "></i> <i class="fa fa-share-alt " aria-hidden="true "></i></p>
+                <p class="para3 ">Ullamcorper condimentum erat pretium velit at ut a nunc id a adeu vestibulum nibh urna nam consequat erat molestie lacinia rhoncus. Nisi a diamida</p>
+                <p class="para4 ">Continue Reading...</p>
+            </div>
+            <div class="grid-contanier-our-blogs-subdiv">
+                <div class="img-hover-zoom ">
+                    <img src="image/organic-blog-img-2-opt.jpg " alt="This zooms-in really well and smooth ">
+                </div>
+                <p class="para1 ">Seating Collection Inspiration</p>
+                <p class="para2 ">Posted by S.Roges <i class="fa fa-envelope-o " aria-hidden="true "></i> <i class="fa fa-share-alt " aria-hidden="true "></i></p>
+                <p class="para3 ">Ullamcorper condimentum erat pretium velit at ut a nunc id a adeu vestibulum nibh urna nam consequat erat molestie lacinia rhoncus. Nisi a diamida</p>
+                <p class="para4 ">Continue Reading...</p>
+            </div>
+            <div class="grid-contanier-our-blogs-subdiv">
+                <div class="img-hover-zoom ">
+                    <img src="image/organic-blog-img-3-opt.jpg " alt="This zooms-in really well and smooth ">
+                </div>
+                <p class="para1 ">A light-filled loft in New Yoir City</p>
+                <p class="para2 ">Posted by S.Roges <i class="fa fa-envelope-o " aria-hidden="true "></i> <i class="fa fa-share-alt " aria-hidden="true "></i></p>
+                <p class="para3 ">Ullamcorper condimentum erat pretium velit at ut a nunc id a adeu vestibulum nibh urna nam consequat erat molestie lacinia rhoncus. Nisi a diamida</p>
+                <p class="para4 ">Continue Reading...</p>
+            </div>
+        </section>
+        <div class="ice-container">
+            <div class="inc-num ">
+                <p class="heading_text ">Proud & Punch premium natural vegetable salad</p>
+                <p class="subheading_text ">A latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure latin words, consectetur, from a lorem ipsum passage, and going through the.</p>
+                <div class="num-wrapper ">
+                    <div>
+                        <p class="number " data-count="20">0</p>
+                        <p class="one ">INGREDIENTS</p>
+                        <p class="make ">Make type specimen book</p>
+                    </div>
+                    <div>
+                        <p class="number " data-count="460">0</p>
+                        <p class="one ">PACKAGE WEIGHT</p>
+                        <p class="make ">When looking at its layout</p>
+                    </div>
+                    <div>
+                        <p class="number " data-count="135">0</p>
+                        <p class="one ">CALORIES ONLY</p>
+                        <p class="make ">More recently with desktop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- How it work part -->
+        <div class="content ">
+            <p class="main-content ">How It Works</p>
+            <img src="image/design.svg">
+            <p class="small-content ">There are many variations of passages of lorem ipsum available</p>
+        </div>
+
+        <section class="grid-container grid-container-howitwork ">
+            <div class="grid-element-howitwork ">
+                <h3 class="type right1 ">Overall Health
+                </h3>
+                <p class="details right1 ">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary.
+                </p>
+                <h3 class="type right1 ">Pesticide reduction
+                </h3>
+                <p class="details right1 ">Consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical.
+                </p>
+                <h3 class="type right1 ">Antibiotic resistance
+                </h3>
+                <p class="details right1 ">Many desktop publishing packages and webpage editors now use lorem ipsum as their.
+                </p>
+            </div>
+            <div class="grid-element-howitwork ">
+                <img src="image/organic-product.png " alt="Organic Products ">
+            </div>
+            <div class="grid-element-howitwork ">
+                <h3 class="type left1 ">Antioxidant capacity
+                </h3>
+                <p class="details left1 ">Various versions have evolved over the years, sometimes by accident, sometimes on purpose.
+                </p>
+                <h3 class="type left1 ">Environmental safety
+                </h3>
+                <p class="details left1 ">It was popularised in the 60s with the release of Letraset sheets containing lorem passages.
+                </p>
+                <h3 class="type left1 ">Immune system boost
+                </h3>
+                <p class="details left1 ">
+                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters as.
+                </p>
+            </div>
+        </section>
+
+        <!-- Testimonial Div -->
+        <div class="content ">
+            <p class="main-content ">Testimonial</p>
+            <img src="image/design.svg">
+            <p class="small-content ">There are many variations of passages of lorem ipsum available</p>
+        </div>
+        <section class="grid-container grid-container-testimonial">
+            <div class="grid-element-testimonial ">
+                <img src="image/wood-testimon-1-100x100.jpg " alt="Testimonial ">
+                <p class="testimonial-para1 "> When an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                <p class="testimonial-para3 "> Preston Lenos</p>
+                <p class="testimonial-para2 "> - Google Inc.</p>
+            </div>
+            <div class="grid-element-testimonial ">
+                <img src="image/wood-testimon-2-100x100.jpg " alt="Testimonial ">
+                <p class="testimonial-para1 ">There are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected.</p>
+                <p class="testimonial-para3 "> Judie Jepp </p>
+                <p class="testimonial-para2 "> - Google Inc.</p>
+            </div>
+            <div class="grid-element-testimonial ">
+                <img src="image/wood-testimon-3-100x100.jpg " alt="Testimonial ">
+                <p class="testimonial-para1 ">You need to be sure there isn't anything embarrasing hidden in the middle of text. All the Lorem Ipsum generators on the Internet.</p>
+                <p class="testimonial-para3 "> Gordon Amyas </p>
+                <p class="testimonial-para2 "> - Google Inc.</p>
+            </div>
+        </section>
+
+        <div class="review ">
+            <p>Leave a Review</p>
+        </div>
+
+
+
+        <!-- Last 4 column div -->
+        <section class="grid-container grid-container-last-4-column ">
+            <div class="grid-element-last-4-column grid-element-last-4-column-1">
+                <p class="num ">1.</p>
+                <h2>Carefully picked</h2>
+                <p>Contrary to popular belief, lorem ipsum is not simply random text. It has roots in literature.</p>
+                <a href="http://localhost:8080/first/grid.html ">Read More</a>
+            </div>
+            <div class="grid-element-last-4-column grid-element-last-4-column-2 ">
+                <p class="num ">2.</p>
+                <h2>Freshly squeezed</h2>
+                <p>Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consetur.</p>
+                <a href="http://localhost:8080/first/grid.html ">Read More</a>
+            </div>
+            <div class="grid-element-last-4-column grid-element-last-4-column-3">
+                <p class="num ">3.</p>
+                <h2>Securely packed</h2>
+                <p>From a lorem ipsum passage, and going through the cites of the word in classical literature disc.</p>
+                <a href="http://localhost:8080/first/grid.html ">Read More</a>
+            </div>
+            <div class="grid-element-last-4-column grid-element-last-4-column-4">
+                <p class="num ">4.</p>
+                <h2>Vitamins and minerals</h2>
+                <p>This book is a treatise on the theory of ethics, very popular during the time of Renaissance.</p>
+                <a href="http://localhost:8080/first/grid.html ">Read More</a>
+            </div>
+        </section>
+
+        <button onclick="topFunction() " id="myBtn" class="scrollupbutton" title="Go to top "><i class="fa fa-chevron-up fa-2x "></i></button>
+        <div class="buy-woodmart"><i class="fa fa-leaf"></i>Buy Woodmart</div>
+        <footer class="grid-container ">
+            <div class="footer-element ">
+                <div>
+                    <h1><b>WoodMart</b></h1>
+                </div>
+                <div class="box ">
+                    Condimentum adipiscing vel neque dis nam parturient orci at scelerisque neque dis nam parturient.
+                </div>
+                <div>451 Wall Street, UK, London</div>
+                <div>Phone: (064) 332-1233</div>
+                <div>Fax: (099) 453-1357</div>
+            </div>
+            <div class="footer-element ">
+                <h1>Recent Posts</h1>
+                <div class="gap">New York</div>
+                <div class="gap">London</div>
+                <div class="gap">Cockfosters</div>
+                <div class="gap">Los Angeles</div>
+                <div class="gap">Chicago</div>
+                <div class="gap">Las Vegas</div>
+            </div>
+            <div class="footer-element ">
+                <h1>Our Stories</h1>
+                <div class="gap">New York</div>
+                <div class="gap">London</div>
+                <div class="gap">Cockfosters</div>
+                <div class="gap">Los Angeles</div>
+                <div class="gap">Chicago</div>
+                <div class="gap">Las Vegas</div>
+            </div>
+            <div class="footer-element ">
+                <h1>Useful Links</h1>
+                <div class="gap">Privacy Policy</div>
+                <div class="gap">Returns</div>
+                <div class="gap">Terms & Conditions</div>
+                <div class="gap">Contact Us</div>
+                <div class="gap">Latest News</div>
+                <div class="gap">Our Sitemap</div>
+            </div>
+            <div class="footer-element ">
+                <h1>Footer Menu</h1>
+                <div class="gap">Instagram profile</div>
+                <div class="gap">New Collection</div>
+                <div class="gap">Woman Dress</div>
+                <div class="gap">Contact Us</div>
+                <div class="gap">Latest News</div>
+                <div class="gap"><i>Purchase Theme</i></div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./woodmart.js "></script>
+    <script type="module" src="js/controller.js"></script>
+</body>
+
+</html>

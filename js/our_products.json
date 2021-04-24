@@ -1,0 +1,73 @@
+[{
+    "id": "1",
+    "img": "image/organic-product-1-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Erat curabitur arcu",
+    "price": "₹250"
+}, {
+    "id": "2",
+    "img": "image/organic-product-3-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Dolor amet consectetur",
+    "price": "₹250"
+}, {
+    "id": "3",
+    "img": "image/organic-product-4-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Sollicitudin molestie malesu",
+    "price": "₹250"
+}, {
+    "id": "4",
+    "img": "image/organic-product-5-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Suscipit eget tortor",
+    "price": "₹250"
+}, {
+    "id": "5",
+    "img": "image/organic-product-6-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Accumsan nulla porttitor",
+    "price": "₹250"
+}, {
+    "id": "6",
+    "img": "image/organic-product-7-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Blandit aliquet mauris",
+    "price": "₹250"
+}, {
+    "id": "7",
+    "img": "image/organic-product-8-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Dolor amet consectetur",
+    "price": "₹250"
+}, {
+    "id": "8",
+    "img": "image/organic-product-9-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Sollicitudin molestie malesu",
+    "price": "₹250"
+}, {
+    "id": "9",
+    "img": "image/organic-product-10-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Suscipit eget tortor",
+    "price": "₹250"
+}, {
+    "id": "10",
+    "img": "image/organic-product-11-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Erat curabitur arcu",
+    "price": "₹250"
+}, {
+    "id": "11",
+    "img": "image/organic-product-12-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Accumsan nulla porttitor",
+    "price": "₹250"
+}, {
+    "id": "12",
+    "img": "image/organic-product-16-opt-430x430.jpg",
+    "type": "organic",
+    "details": "Blandit aliquet mauris",
+    "price": "₹250"
+}]
